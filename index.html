@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TO DO APPLICATION</title>
+  <style>
+    h1{
+      text-align: center;
+    }
+    .container{
+      width:90%;
+      max-width: 400px;
+      margin: auto;
+      padding: 10px;
+    }
+    form{
+      display: flex;
+      gap: 10px;
+    }
+    #todo{
+      flex: 1;
+      font-size: 17px;
+      border:none;
+      transition: border-bottom 0.18s ease-in;
+    }
+    #btn{
+      background-color: orange;
+      color: white;
+      font-size: 17px;
+      border: none;
+      padding: 10px;
+      border-radius: 20px;
+    }
+    #todo:focus{
+      outline: none;
+      border-bottom: 2px solid black;
+    }
+    .delete-item{
+      border: none;
+      background-color: white;
+    
+    }
+    .delete-item img{
+      width:20px;
+      height: 20px;
+      margin-top: 5px;
+      cursor: pointer;
+    }
+    ul{
+      padding: 0;
+    }
+    ul li{
+      font-size: 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+  <h1>TO-DO APPLICATION</h1>
+  <div class="container">
+     <form>
+      <input type="text" name="todo" id="todo" placeholder="enter your todo...">
+      <input type="submit" name="submit" value="Submit" id="btn">
+     </form>
+  <ul id="list"></ul>
+  </div>
+  <script src="scripts.js"></script>
+</body>
+</html>

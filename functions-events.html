@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // function declaration --> Declaring a regular function with name
+
+    function add(a,b)
+    {
+      return a + b;
+    }
+    console.log(add(9,7));
+    // function expression --> assigning  an anonymous function to a variable
+   const multiply = function(a,b,c){
+             return a*b*c;
+   }
+  console.log(multiply(2,3,4));
+
+  // Arrow function --> A shorter syntax for writing functions, introduced in ES6.
+  const sum = (a,b)=>{
+       console.log(a + b);
+  }
+  sum(10,40);
+
+  //Anonymous Function --> A function without a name, often used as arguments for other functions.
+  setTimeout(function () {
+  console.log("This runs after 2 seconds");
+}, 2000);
+
+//Immediately Invoked Function Expression (IIFE) --> A function that runs as soon as it is defined.
+(function () {
+  console.log("IIFE executed");
+})();
+
+// An Immediately Invoked Function Expression (IIFE) in JavaScript is a function that is executed immediately after it is defined. This is achieved by wrapping the function in parentheses and then immediately invoking it with ().
+
+// Here’s a detailed explanation of what that means:
+
+// Breaking it Down
+// Normal Function Definition: Normally, when you define a function, you do not execute it immediately. You call it explicitly later:
+
+// function greet() {
+//   console.log("Hello!");
+// }
+// greet(); // Call the function explicitly
+// IIFE: With an IIFE, the function executes immediately without needing to call it explicitly. This happens because of the combination of function definition and immediate invocation:
+
+// (function () {
+//   console.log("Hello!");
+// })(); // This runs immediately
+// Why Does It Work?
+// Wrapping the function in parentheses (function() { ... }) turns the function into an expression. Functions need to be invoked, but function expressions can be executed directly.
+// The () at the end of the function calls (or "invokes") it immediately.
+// Example of IIFE in Action
+
+// (function () {
+//   console.log("This is an IIFE!");
+// })(); // Output: "This is an IIFE!"
+// Here’s what’s happening:
+
+// function () { console.log("This is an IIFE!"); } defines an anonymous function.
+// Wrapping it in ( ... ) converts it to a function expression.
+// Adding () immediately after it invokes the function.
+// Why Use IIFE?
+// Avoid Polluting the Global Namespace:
+
+// Code inside the IIFE is encapsulated in its own scope and does not interfere with other variables or functions.
+// (function () {
+//   const secret = "IIFE Secret";
+//   console.log(secret); // Accessible here
+// })();
+// // console.log(secret); // Error: secret is not defined
+// Initialization Logic:
+
+// Useful for running setup code or initialization logic immediately.
+// javascript
+// Copy code
+// const app = (function () {
+//   const appName = "My App";
+//   return {
+//     getName: () => appName,
+//   };
+// })();
+// console.log(app.getName()); // Output: "My App"
+// Private Scope:
+
+// Variables declared inside an IIFE are private and do not leak into the global scope.
+// Prevent Variable Collisions:
+
+// Especially useful in applications where multiple scripts might use the same variable names.
+// Variations of IIFE Syntax
+// There are different ways to write an IIFE:
+
+// Standard Syntax:
+
+// javascript
+// Copy code
+// (function () {
+//   console.log("Standard IIFE");
+// })();
+// Arrow Function IIFE:
+
+// javascript
+// Copy code
+// (() => {
+//   console.log("Arrow Function IIFE");
+// })();
+// Named Function IIFE:
+
+// javascript
+// Copy code
+// (function myIIFE() {
+//   console.log("Named IIFE");
+// })();
+// Using the Unary Operator:
+
+// javascript
+// Copy code
+// +function () {
+//   console.log("Unary Operator IIFE");
+// }();
+// Common Use Cases
+// Encapsulation in Libraries:
+
+// javascript
+// Copy code
+// (function () {
+//   const libraryVar = "Library";
+//   console.log("Library logic running");
+// })();
+// Event Listener Binding:
+
+// javascript
+// Copy code
+// (function () {
+//   document.addEventListener("DOMContentLoaded", () => {
+//     console.log("DOM is ready");
+//   });
+// })();
+// Avoid Global Variables in Loops:
+
+// javascript
+// Copy code
+// for (var i = 0; i < 3; i++) {
+//   (function (i) {
+//     setTimeout(() => console.log(i), 1000);
+//   })(i);
+// }
+// // Output: 0, 1, 2 (one second apart)
+// Key Advantages
+// Self-contained: Ensures code doesn't interfere with the global scope.
+// Readability: Clearly indicates that the code is meant to execute immediately.
+// Functionality: Enables modular and reusable code, especially in complex applications.
+
+// KEY DIFFERENCES
+// Why Use IIFE If Normal Functions Already Have Scope?
+// The difference comes down to purpose and immediate execution:
+
+// Single-Use Logic:
+
+// Normal functions are reusable — you call them multiple times as needed.
+// IIFEs are meant to execute once and not be reused.
+// Avoid Global Pollution:
+
+// Variables inside a normal function can be accessed globally if the function is called and returns something. An IIFE avoids this altogether.
+// Modularity:
+
+// You can create self-contained blocks of logic that execute immediately.
+
+function divide()
+{
+  const variable = 20;
+  console.log(variable);
+}
+
+// divide = 40;
+divide(); // functions-events.html:181  Uncaught TypeError: divide is not a function,so we can tamper the value of a named function.
+
+const obj = {
+  name: "Vamsi",
+  greet: () => {
+    console.log(this.name);
+  },
+};
+
+obj.greet(); // Output: undefined (arrow function inherits `this` from its lexical scope, likely global)
+
+// String
+// A JavaScript string is zero or more characters written inside quotes.
+const str = "something inside a string";
+// string methods
+
+console.log(str.length);
+console.log(str.charAt(1)); // returns character at the specific index
+console.log(str.charCodeAt(3)); // returns character code (such as ASCII) at specific index
+console.log(str.at(2)); 
+// The at() method is a new addition to JavaScript.
+
+// It allows the use of negative indexes while charAt() do not.
+
+// Now you can use myString.at(-2) instead of charAt(myString.length-2).
+
+// Extracting String Parts
+// There are 3 methods for extracting a part of a string:
+
+// slice(start, end)
+// substring(start, end)
+// substr(start, length)
+
+// slice() extracts a part of a string and returns the extracted part in a new string.
+
+// The method takes 2 parameters: start position, and end position (end not included).
+
+// JavaScript String substring()
+// substring() is similar to slice().
+
+// The difference is that start and end values less than 0 are treated as 0 in substring().
+  </script>
+</body>
+</html>

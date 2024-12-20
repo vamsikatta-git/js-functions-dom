@@ -1,0 +1,33 @@
+DOM Selectors
+DOM Selectors are used to select and manipulate HTML elements.
+
+a. Single Element Selectors
+Selects the first matching element.
+javascript
+Copy code
+// Select by ID
+const elementById = document.getElementById('myId');
+
+// Select by query (CSS selectors)
+const elementByQuery = document.querySelector('.myClass');
+
+b. Multiple Element Selectors
+Selects all matching elements.
+
+// Select all elements by class name
+const elementsByClass = document.getElementsByClassName('myClass');
+
+// Select all elements by tag name
+const elementsByTag = document.getElementsByTagName('div');
+
+// Select all elements using querySelectorAll
+const elementsByQueryAll = document.querySelectorAll('.myClass');
+
+DOM Events
+Events allow interaction with the webpage.
+
+a. Adding Event Listeners
+Use addEventListener to respond to events like clicks, hovers, etc.
+
+Manipulating Elements
+You can change the content, style, attributes, and more.

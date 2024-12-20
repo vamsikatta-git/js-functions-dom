@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .clock{
+      background-color: rgba(195, 24, 24, 0.944);
+      border: 5px solid white;
+      padding: 10px;
+      border-radius: 10px;
+      width: fit-content;
+      /* box-shadow: 10px 20px 0 30px #808080; */
+      margin-left: 30px;
+    }
+    button{
+      margin-top: 0px;
+    }
+  </style>
+</head>
+<body>
+  <h2 class="clock"></h2>
+  <n2 class="hello">Hello World</n2>
+  <button class="replace">Replace Text</button>
+  <button class="showHeading">show heading</button>
+  <h1 class="heading">No Heading</h1>
+  <button class="hide">Hide Text</button>
+  <script>
+ function time()
+ {
+  const date  = new Date();
+  const clock = document.querySelector(".clock")
+  const h = String(date.getHours()).padStart(2,'0');
+  const m = String(date.getMinutes()).padStart(2,'0');
+  const s = String(date.getSeconds()).padStart(2,'0');
+
+  clock.textContent = `${h} : ${m} : ${s}`;
+ }
+setInterval(time,1000);
+    const arr = [0,1,0,1,0,1,0,1,0,0,0];
+    let countZero = 0;
+    for(let i=0;i<arr.length;i++)
+  {
+     if(arr[i] === 0)
+     {
+      countZero++;
+     }
+  }
+
+  console.log(`the number of zero's in the array are: ${countZero}`);
+
+  const numbers = [1,2,3,,4,5,6,2,7,9,8,15,56];
+  let odd = 0;
+  let even = 0;
+  let oddNumbers = [];
+  let evenNumbers = [];
+  for(let i=0;i<numbers.length;i++)
+  {
+    if(numbers[i]%2 === 0)
+  {
+     even++;
+     evenNumbers.push(numbers[i]);
+  }
+  else{
+    odd++;
+    oddNumbers.push(numbers[i]);
+  }
+  }
+
+  console.log(`Number of even numbers are: ${even} and they are ${evenNumbers}`);
+  console.log(`Number of odd numbers are: ${odd} and they are ${oddNumbers}`);
+
+  // const inp = prompt("enter a string:").trim().toUpperCase();
+  // let vowels = 0;
+  // for(let i=0;i<inp.length;i++)
+  // {
+  //   if(inp[i] === 'A' || inp[i] === 'E'|| inp[i] === 'O'|| inp[i] === 'I'|| inp[i] === 'U' )
+  // {
+  //   vowels++;
+  // }
+  // }
+  // console.log(`No of vowels in your text is: ${vowels}`);
+
+  // DOM
+const btn = document.querySelector(".showHeading")
+const heading = document.querySelector(".heading")
+btn.addEventListener('click',()=>{heading.textContent = "MERN stack"})
+
+  const firstH1 = document.querySelector('h1');
+if (firstH1) {
+    console.log(firstH1.textContent);
+} else {
+    console.log("No <h1> element found on the page.");
+}
+const hello = document.querySelector(".hello")
+const hide = document.querySelector(".hide")
+const replacebtn = document.querySelector(".replace");
+
+replacebtn.addEventListener('click',()=>hello.textContent="Welcome to elevation Academy");
+hide.addEventListener('click',()=>{heading.style.display = "none";
+})
+</script>
+</body>
+</html>
